@@ -19,7 +19,6 @@ export async function vratiSvePrijave(req: Request, res: Response) {
                 }
             }
         })
-
     else {
         prijave = await getRepository(Prijava).find();
     }
