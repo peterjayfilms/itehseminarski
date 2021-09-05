@@ -7,7 +7,7 @@ interface Props {
 }
 export default function PredmetTabela(props: Props) {
     return (
-        <Table>
+        <Table inverted>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>Naziv</Table.HeaderCell>
@@ -25,7 +25,7 @@ export default function PredmetTabela(props: Props) {
                                 <Table.Cell>{element.espb}</Table.Cell>
                                 <Table.Cell>{element.semestar}</Table.Cell>
                                 <Table.Cell>
-                                    <Button onClick={props.onRowClick(element)} positive>Detalji</Button>
+                                    <Button inverted onClick={props.onRowClick(element)} fluid >Detalji</Button>
                                 </Table.Cell>
 
                             </Table.Row>

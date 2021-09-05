@@ -25,9 +25,9 @@ export default function SeminarskiModal(props: Props) {
 
     return (
         <Modal open={props.open} onClose={props.close} >
-            <Modal.Header>{props.seminarski ? 'Izmeni' : 'Kreiraj novi'} seminarski rad</Modal.Header>
-            <Modal.Content>
-                <Form onSubmit={() => {
+            <Modal.Header style={{ background: 'grey', color: 'white', textAlign: 'center' }}>{props.seminarski ? 'Izmeni' : 'Kreiraj novi'} seminarski rad</Modal.Header>
+            <Modal.Content style={{ background: 'grey' }} >
+                <Form inverted onSubmit={() => {
                     if (!props.onSubmit) {
                         return;
                     }

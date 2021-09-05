@@ -34,11 +34,11 @@ export default function PrijavaModal(props: Props) {
     }, [props.prijava, profesori])
     return (
         <Modal open={props.open} onClose={props.close}>
-            <Modal.Header>
+            <Modal.Header style={{ background: 'grey', color: 'white', textAlign: 'center' }}>
                 Prijava
             </Modal.Header>
-            <Modal.Content>
-                <Form encType="multipart/form-data" onSubmit={e => {
+            <Modal.Content style={{ background: 'grey' }}>
+                <Form inverted encType="multipart/form-data" onSubmit={e => {
                     const data = new FormData();
                     const inputElement = fileRef.current?.lastChild?.lastChild as HTMLInputElement;
 

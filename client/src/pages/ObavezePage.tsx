@@ -49,7 +49,7 @@ export default function ObavezePage(props: Props) {
                 {
                     selSeminarski && (
                         <Grid.Column width='2'>
-                            <Button fluid primary onClick={() => {
+                            <Button inverted color='black' fluid onClick={() => {
                                 setOpen(true);
                             }} >Prijavi</Button>
                         </Grid.Column>

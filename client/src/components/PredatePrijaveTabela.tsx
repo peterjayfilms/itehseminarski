@@ -14,7 +14,7 @@ export default function PredatePrijaveTabela(props: Props) {
     const [activePage, setActivePage] = useState(1)
     const totalPages = Math.ceil(props.prijave.length / 4);
     return (
-        <Table selectable>
+        <Table inverted selectable>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>Naziv teme</Table.HeaderCell>
@@ -50,7 +50,7 @@ export default function PredatePrijaveTabela(props: Props) {
             <Table.Footer>
                 <Table.Row>
                     <Table.HeaderCell colSpan='5'>
-                        <Pagination totalPages={totalPages} activePage={activePage}
+                        <Pagination inverted totalPages={totalPages} activePage={activePage}
                             onPageChange={(event, data) => {
                                 console.log(data);
                                 if (typeof data.activePage === 'string') {

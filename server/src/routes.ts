@@ -6,6 +6,7 @@ import * as multer from 'multer';
 import * as path from 'path';
 import { getFile } from "./actions/FajlActions";
 import { vratiProfesore } from "./actions/ProfesorActions";
+import { vratiStudente } from "./actions/StudentActions";
 
 const upload = multer({ dest: path.resolve('file/') })
 
@@ -59,6 +60,10 @@ export const Routes: Route[] = [{
     method: 'get',
     route: '/profesor',
     action: [vratiProfesore]
+}, {
+    method: 'get',
+    route: '/student',
+    action: [vratiStudente]
 }
 
 ];

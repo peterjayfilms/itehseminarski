@@ -89,7 +89,7 @@ export default function OceniPrijavePage(props: Props) {
                                     const value = e.currentTarget.value;
                                     setOcena(parseInt(value));
                                 }} />
-                                <Form.Button disabled={ocena === 0} fluid>Oceni</Form.Button>
+                                <Form.Button color='black' fluid>Oceni</Form.Button>
                             </Form>
 
                         )

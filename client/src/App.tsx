@@ -14,6 +14,8 @@ import PredatePrijavePage from './pages/PredatePrijavePage';
 import OceniPrijavePage from './pages/OceniPrijavePage';
 import SeminarskiPage from './pages/SeminarskiPage';
 import RandomSlika from './pages/RandomSlika';
+import { Grid } from 'semantic-ui-react';
+import StudentiPage from './pages/StudentiPage';
 axios.defaults.withCredentials = true;
 function App() {
   const [user, setUser] = useState<Student | Profesor | undefined>(undefined);
@@ -170,62 +172,73 @@ function App() {
   }
   return (
     <BrowserRouter>
-      <Navbar logout={logout} user={user} />
+      <Grid padded columns='16' style={{ background: 'lightgrey', minHeight: '100vh' }}>
+        <Grid.Row>
+          <Grid.Column width='3'>
+            <Navbar logout={logout} user={user} />
+          </Grid.Column>
+          <Grid.Column width='13'>
 
-      {
-        user && isStudent(user) && (
-          <Switch>
+            {
+              user && isStudent(user) && (
+                <Switch>
 
-            <Route path='/obaveze'>
-              <ObavezePage
-                prijavi={prijavi}
-                seminarski={user.slusa.flatMap(element => {
-                  return element.seminarski.filter(sem => {
-                    return user.prijave.find(prijava => prijava.seminarski.id === sem.id) === undefined
-                  })
-                })} />
-            </Route>
-            <Route path='/predato'>
-              <PredatePrijavePage prijave={user.prijave} izmeniPrijavu={izmeniPrijavu} obrisiPrijavu={obrisiPrijavu} />
-            </Route>
-            <Route path='/slika'>
-              <RandomSlika />
-            </Route>
-            <Route path='/'>
-              <PredmetiPage predmeti={user.slusa} />
-            </Route>
-          </Switch>
-        )
-      }
+                  <Route path='/obaveze'>
+                    <ObavezePage
+                      prijavi={prijavi}
+                      seminarski={user.slusa.flatMap(element => {
+                        return element.seminarski.filter(sem => {
+                          return user.prijave.find(prijava => prijava.seminarski.id === sem.id) === undefined
+                        })
+                      })} />
+                  </Route>
+                  <Route path='/predato'>
+                    <PredatePrijavePage prijave={user.prijave} izmeniPrijavu={izmeniPrijavu} obrisiPrijavu={obrisiPrijavu} />
+                  </Route>
+                  <Route path='/slika'>
+                    <RandomSlika />
+                  </Route>
+                  <Route path='/'>
+                    <PredmetiPage predmeti={user.slusa} />
+                  </Route>
+                </Switch>
+              )
+            }
 
-      {
-        user && !isStudent(user) && (
-          <Switch>
-            <Route path='/seminarski'>
-              <SeminarskiPage profesor={user}
-                kreirajSeminarski={kreirajSeminarski}
-                izmeniSeminarski={izmeniSeminarski}
-                obrisiSeminarski={obrisiSeminarski}
-              />
-            </Route>
-            <Route path='/prijava'>
-              <OceniPrijavePage profesor={user} />
-            </Route>
-            <Route path='/'>
-              <PredmetiPage predmeti={user.predaje} />
-            </Route>
-          </Switch>
-        )
-      }
-      {
-        !user && (
-          <Switch>
-            <Route path='/'>
-              <Login onSubmit={onLogin} />
-            </Route>
-          </Switch>
-        )
-      }
+            {
+              user && !isStudent(user) && (
+                <Switch>
+                  <Route path='/seminarski'>
+                    <SeminarskiPage profesor={user}
+                      kreirajSeminarski={kreirajSeminarski}
+                      izmeniSeminarski={izmeniSeminarski}
+                      obrisiSeminarski={obrisiSeminarski}
+                    />
+                  </Route>
+                  <Route path='/prijava'>
+                    <OceniPrijavePage profesor={user} />
+                  </Route>
+                  <Route path='/studenti'>
+                    <StudentiPage />
+                  </Route>
+                  <Route path='/'>
+                    <PredmetiPage predmeti={user.predaje} />
+                  </Route>
+                </Switch>
+              )
+            }
+            {
+              !user && (
+                <Switch>
+                  <Route path='/'>
+                    <Login onSubmit={onLogin} />
+                  </Route>
+                </Switch>
+              )
+            }
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
 
     </BrowserRouter>
   );

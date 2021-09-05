@@ -44,10 +44,10 @@ export default function PredatePrijavePage(props: Props) {
                     {
                         active?.status === 'kreirana' && (
                             <>
-                                <Button onClick={() => {
+                                <Button inverted color='black' onClick={() => {
                                     setOpenModal(true);
                                 }}>Izmeni</Button>
-                                <Button onClick={obrisiPrijavu}>Obrisi</Button>
+                                <Button inverted color='vk' onClick={obrisiPrijavu}>Obrisi</Button>
                             </>
                         )
                     }

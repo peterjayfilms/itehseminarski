@@ -11,15 +11,13 @@ interface Props {
 export default function Navbar(props: Props) {
     if (!props.user) {
         return (
-            <Header textAlign='center'>
-                <h1>Aplikacija za evidentiranje seminarskih radova studenata FON - a </h1>
-
-            </Header>
+            <>
+            </>
         )
     }
     return (
 
-        <Menu borderless color='grey' fluid>
+        <Menu vertical style={{ marginTop: '80px', borderRight: '1px grey solid', paddingRight: '40px' }} secondary color='grey' fluid>
             <Menu.Item header >
                 {props.user.ime + ' ' + props.user.prezime} - {
                     isStudent(props.user) ? 'student' : 'profesor'
@@ -40,7 +38,7 @@ export default function Navbar(props: Props) {
                             Predati radovi
                         </Menu.Item>
                         <Menu.Item as={Link} to='/slika' >
-                            Radnom slika
+                            Random slika
                         </Menu.Item>
 
                     </>
@@ -52,12 +50,15 @@ export default function Navbar(props: Props) {
                         <Menu.Item as={Link} to='/seminarski'>
                             Seminarski radovi
                         </Menu.Item>
+                        <Menu.Item as={Link} to='/studenti'>
+                            Studenti
+                        </Menu.Item>
                     </>
                 )
             }
             <Menu.Menu position='right'>
                 <Menu.Item >
-                    <Button onClick={props.logout}>Logout</Button>
+                    <Button color='black' fluid onClick={props.logout}>Logout</Button>
                 </Menu.Item>
             </Menu.Menu>
         </Menu>

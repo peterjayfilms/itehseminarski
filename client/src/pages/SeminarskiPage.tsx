@@ -66,7 +66,7 @@ export default function SeminarskiPage(props: Props) {
                 <Grid.Column width='7'>
                     {selectedPredmet > -1 && (
                         <>
-                            <Button onClick={() => {
+                            <Button color='black' onClick={() => {
                                 setOpenModal(true);
                             }}>{activeSeminarski ? 'Izmeni' : 'Kreiraj'}</Button>
                             {activeSeminarski && (
@@ -81,14 +81,14 @@ export default function SeminarskiPage(props: Props) {
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column width='5'>
+                <Grid.Column width='4'>
                     {
                         selectedPredmet > -1 && (
                             <SeminarskiTabela radovi={props.profesor.predaje[selectedPredmet].seminarski} active={activeSeminarski} onRowClick={onRowClick} />
                         )
                     }
                 </Grid.Column>
-                <Grid.Column textAlign='center' width='11'>
+                <Grid.Column textAlign='center' width='12'>
                     <h3>Podaci o seminarskim radovima po predmetima</h3>
                     <BarChart
 

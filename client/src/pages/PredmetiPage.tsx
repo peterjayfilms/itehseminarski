@@ -23,19 +23,18 @@ export default function PredmetiPage(props: Props) {
             <Grid.Row textAlign='center'>
                 <Grid.Column textAlign='center' width='16' >
                     <h1>Predmeti</h1>
+                    <PredmetTabela predmeti={props.predmeti} onRowClick={onRowClick} />
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row columns='16'>
-                <Grid.Column width='5'>
-                    <PredmetTabela predmeti={props.predmeti} onRowClick={onRowClick} />
-                </Grid.Column>
+
                 {
                     selPredmet && (
                         <>
                             <Grid.Column width='5'>
                                 <PredmetOpis predmet={selPredmet} />
                             </Grid.Column>
-                            <Grid.Column width='6'>
+                            <Grid.Column width='11'>
                                 <SeminarskiTabela radovi={selPredmet.seminarski} />
                             </Grid.Column>
                         </>

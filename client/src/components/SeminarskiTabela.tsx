@@ -10,7 +10,7 @@ interface Props {
 
 export default function SeminarskiTabela(props: Props) {
     return (
-        <Table selectable>
+        <Table inverted selectable>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>Naziv seminarskog rada</Table.HeaderCell>
